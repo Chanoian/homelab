@@ -8,8 +8,8 @@ spec:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'app-of-apps'
-    repoURL: https://gitlab.consulting.redhat.com/telus-nephio/infra.git
+    path: 'day2/operators'
+    repoURL: https://github.com/Chanoian/homelab.git 
     targetRevision: main
     directory:
       recurse: true
