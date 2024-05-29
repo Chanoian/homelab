@@ -8,8 +8,8 @@ spec:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'SampleApps/VotingApp/k8s-manifests'
-    repoURL: https://github.com/Chanoian/homelab.git 
+    path: 'VotingApp/k8s-manifests'
+    repoURL: https://github.com/Chanoian/SampleApps.git 
     targetRevision: main
     directory:
       recurse: true
