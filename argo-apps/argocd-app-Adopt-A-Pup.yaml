@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-app-sample-apps
+  name: argocd-app-adopt-a-pup
   namespace: openshift-gitops
 spec:
   destination:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'VotingApp/k8s-manifests'
-    repoURL: https://github.com/Chanoian/SampleApps.git 
+    path: 'kubefiles'
+    repoURL: https://github.com/Chanoian/Adopt-A-Pup.git 
     targetRevision: main
     directory:
       recurse: true
