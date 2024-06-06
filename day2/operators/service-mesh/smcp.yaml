@@ -16,7 +16,7 @@ spec:
     prometheus:
       enabled: false 
   gateways:
-    engress:
+    egress:
       enabled: True
     ingress:
       enabled: True
