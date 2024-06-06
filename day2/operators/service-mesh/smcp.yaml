@@ -1,35 +1,37 @@
-apiVersion: v1
-items:
-- apiVersion: maistra.io/v2
-  kind: ServiceMeshControlPlane
-  metadata:
-    name: basic
-    namespace: istio-system
-  spec:
-    addons:
-      grafana:
-        enabled: true
-      jaeger:
-        install:
-          storage:
-            type: Memory
-      kiali:
-        enabled: true
-      prometheus:
-        enabled: false 
-    gateways:
-      openshiftRoute:
-        enabled: false
-    policy:
-      type: Istiod
-    profiles:
-    - default
-    telemetry:
-      type: Istiod
-    tracing:
-      sampling: 10000
-      type: Jaeger
-    version: v2.5
-kind: List
+apiVersion: maistra.io/v2
+kind: ServiceMeshControlPlane
 metadata:
-  resourceVersion: ""
+name: basic
+namespace: istio-system
+spec:
+  addons:
+    grafana:
+      enabled: true
+    jaeger:
+      install:
+        storage:
+          type: Memory
+    kiali:
+      enabled: true
+    prometheus:
+      enabled: false 
+  gateways:
+    engress:
+      enabled: True
+    ingress:
+      enabled: True
+  policy:
+    type: Istiod
+  proxy:
+    networking:
+      trafficControl:
+        outbound:
+          policy: REGISTRY_ONLY
+  profiles:
+  - default
+  telemetry:
+    type: Istiod
+  tracing:
+    sampling: 10000
+    type: Jaeger
+  version: v2.5
