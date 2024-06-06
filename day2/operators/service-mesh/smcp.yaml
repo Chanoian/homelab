@@ -16,7 +16,7 @@ items:
       kiali:
         enabled: true
       prometheus:
-        enabled: true
+        enabled: false 
     gateways:
       openshiftRoute:
         enabled: false
