@@ -4,4 +4,6 @@ metadata:
   labels:
     kiali.io/member-of: istio-system
     maistra.io/member-of: istio-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
   name: istio-system
