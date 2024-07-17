@@ -19,3 +19,8 @@ subscriptions:
     channel: stable
     version:  4.16.0
     source: redhat-operators
+  - name: rhods-operator
+    namespace: redhat-ods-operator 
+    channel: fast
+    version: 2.11.0
+    source: redhat-operators
