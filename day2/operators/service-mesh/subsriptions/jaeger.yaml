@@ -4,6 +4,8 @@ metadata:
   labels:
     operators.coreos.com/jaeger-product.openshift-distributed-tracing: ""
   name: jaeger-product
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
   namespace: openshift-distributed-tracing
 spec:
   channel: stable

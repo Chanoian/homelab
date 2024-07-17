@@ -4,6 +4,8 @@ metadata:
   labels:
     operators.coreos.com/elasticsearch-operator.openshift-operators-redhat: ""
   name: elasticsearch-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
   namespace: openshift-operators-redhat
 spec:
   channel: stable-5.8
