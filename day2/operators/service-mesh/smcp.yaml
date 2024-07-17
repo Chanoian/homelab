@@ -3,6 +3,8 @@ kind: ServiceMeshControlPlane
 metadata:
   name: basic
   namespace: istio-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   addons:
     grafana:
@@ -14,12 +16,12 @@ spec:
     kiali:
       enabled: true
     prometheus:
-      enabled: false 
+      enabled: true  
   gateways:
     egress:
-      enabled: True
+      enabled: true
     ingress:
-      enabled: True
+      enabled: true
   policy:
     type: Istiod
   proxy:
