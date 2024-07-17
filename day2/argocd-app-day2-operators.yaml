@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: day-2-apps-of-apps-operators
+  name: day2-operators-install 
   namespace: openshift-gitops
 spec:
   destination:
@@ -11,8 +11,9 @@ spec:
     path: 'day2/operators'
     repoURL: https://github.com/Chanoian/homelab.git 
     targetRevision: main
-    directory:
-      recurse: true
+    helm:
+      valueFiles:
+        - values.yaml
   project: default
   syncPolicy:
     syncOptions:
