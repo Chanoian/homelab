@@ -8,7 +8,7 @@ spec:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'day2/operators'
+    path: 'day2/operators/service-mesh'
     repoURL: https://github.com/Chanoian/homelab.git 
     targetRevision: main
     directory:
