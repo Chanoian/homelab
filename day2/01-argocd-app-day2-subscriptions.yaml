@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: day2-subscriptions-install 
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'day2/operators/subscriptions'
+    repoURL: https://github.com/Chanoian/homelab.git 
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: default
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    - Validate=false
+    automated:
+      prune: true
+      selfHeal: true
