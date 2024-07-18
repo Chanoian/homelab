@@ -11,6 +11,8 @@ spec:
     path: 'day2/operators/operands'
     repoURL: https://github.com/Chanoian/homelab.git 
     targetRevision: main
+    directory:
+      recurse: true
   project: default
   syncPolicy:
     syncOptions:
