@@ -22,5 +22,5 @@ subscriptions:
   - name: rhods-operator
     namespace: redhat-ods-operator 
     channel: fast
-    version: 2.11.0
+    version: 2.11.0 e
     source: redhat-operators
