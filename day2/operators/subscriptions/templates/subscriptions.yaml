@@ -29,6 +29,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec: {}
+  targetNamespaces:
+  - {{ .namespace }}
 ---
 {{- end }}
 {{- end }}
