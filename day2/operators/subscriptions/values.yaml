@@ -14,7 +14,7 @@ subscriptions:
     channel: stable-4.16
     version:  4.16.0
     source: redhat-operators
-  - name: kubevirt-hyperconverged-operator
+  - name: kubevirt-hyperconverged
     namespace: openshift-cnv
     channel: stable
     version:  4.16.0
