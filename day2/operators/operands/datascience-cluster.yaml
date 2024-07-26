@@ -1,8 +1,6 @@
 apiVersion: datasciencecluster.opendatahub.io/v1
 kind: DataScienceCluster
 metadata:
-  annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
   labels:
     app.kubernetes.io/created-by: rhods-operator
     app.kubernetes.io/instance: default-dsc
