@@ -24,11 +24,6 @@ subscriptions:
     channel: fast
     version: 2.11.0 e
     source: redhat-operators
-  - name: jaeger-operator 
-    namespace: openshift-distributed-tracing 
-    channel: stable
-    version: 1.57.0-7
-    source: redhat-operators
   - name: web-terminal
     namespace: openshift-operators
     channel: fast
