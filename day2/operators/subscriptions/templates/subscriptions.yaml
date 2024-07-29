@@ -28,10 +28,11 @@ metadata:
   namespace: {{ .namespace }}
   annotations:
     argocd.argoproj.io/sync-wave: "2"
+{{- if .targetNamespace }}
 spec: 
-  {{- if .targetNamespace }}
   targetNamespaces:
   - {{ .targetNamespace }}
+{{- end }}
 ---
 {{- end }}
 {{- end }}
