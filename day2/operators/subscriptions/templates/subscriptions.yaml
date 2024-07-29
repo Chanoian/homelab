@@ -32,7 +32,6 @@ spec:
   {{- if .targetNamespace }}
   targetNamespaces:
   - {{ .targetNamespace }}
-  {{- else }}
 ---
 {{- end }}
 {{- end }}
