@@ -4,6 +4,7 @@ metadata:
   name: day2-minio-install 
   namespace: openshift-gitops
 spec:
+  syncWave: 3
   destination:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'

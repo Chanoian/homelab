@@ -4,6 +4,7 @@ metadata:
   name: day2-subscriptions-install 
   namespace: openshift-gitops
 spec:
+  syncWave: 1
   destination:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
