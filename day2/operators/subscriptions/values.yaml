@@ -9,14 +9,14 @@ subscriptions:
     channel: stable
     version: 2.5.2-0
     source: redhat-operators
-  #  - name: lvms-operator
-  #    namespace: openshift-storage
-  #    channel: stable-4.16
-  #    targetNamespace: cnv
-  #    version:  4.16.0
-  #    source: redhat-operators
-  #  - name: kubevirt-hyperconverged
-  #    namespace: openshift-cnv
+  - name: lvms-operator
+    namespace: openshift-storage
+    channel: stable-4.16
+    targetNamespace: cnv
+    version:  4.16.0
+    source: redhat-operators
+ #  - name: kubevirt-hyperconverged
+ #    namespace: openshift-cnv
   #    targetNamespace: openshift-cnv
   #    channel: stable
   #    version:  4.16.0
