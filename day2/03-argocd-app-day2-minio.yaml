@@ -4,12 +4,11 @@ metadata:
   name: day2-minio-install 
   namespace: openshift-gitops
 spec:
-  syncWave: 3
   destination:
-    namespace: openshift-gitops
+    namespace: minio 
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'day2/minio'
+    path: 'day2/operators/minio'
     repoURL: https://github.com/Chanoian/homelab.git 
     targetRevision: main
     directory:
@@ -23,3 +22,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
