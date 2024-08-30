@@ -30,7 +30,7 @@ spec:
     dashboard:
       managementState: Managed
     modelmeshserving:
-      managementState: Managed
+      managementState: Removed 
     datasciencepipelines:
       managementState: Managed
     trainingoperator:
