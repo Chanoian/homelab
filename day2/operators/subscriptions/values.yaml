@@ -2,7 +2,7 @@ subscriptions:
   - name: servicemeshoperator
     namespace: openshift-operators
     channel: stable
-    version: 2.5.2-0
+    version: 2.6.1
     source: redhat-operators
   - name: lvms-operator
     namespace: openshift-storage
