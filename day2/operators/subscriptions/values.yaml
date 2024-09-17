@@ -15,12 +15,12 @@ subscriptions:
     targetNamespace: openshift-storage 
     version:  4.16.0
     source: redhat-operators
- #  - name: kubevirt-hyperconverged
- #    namespace: openshift-cnv
-  #    targetNamespace: openshift-cnv
-  #    channel: stable
-  #    version:  4.16.0
-  #    source: redhat-operators
+  - name: kubevirt-hyperconverged
+    namespace: openshift-cnv
+    targetNamespace: openshift-cnv
+    channel: stable
+    version:  4.16.0
+    source: redhat-operators
   - name: rhods-operator
     namespace: redhat-ods-operator 
     channel: fast
