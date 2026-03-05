@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: image-registry-storage
+  namespace: openshift-image-registry
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 223Gi
+  storageClassName: local-sata-registry
+---
+apiVersion: imageregistry.operator.openshift.io/v1
+kind: Config
+metadata:
+  name: cluster
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
+spec:
+  managementState: Managed
+  replicas: 1
+  rolloutStrategy: Recreate
+  storage:
+    pvc:
+      claim: image-registry-storage

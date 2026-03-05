@@ -10,7 +10,7 @@ spec:
     disableFreePageReporting: false
     disableSerialConsoleLog: true
   higherWorkloadDensity:
-    memoryOvercommitPercentage: 100
+    memoryOvercommitPercentage: 150
   liveMigrationConfig:
     allowAutoConverge: false
     allowPostCopy: false
@@ -32,7 +32,6 @@ spec:
   featureGates:
     deployTektonTaskResources: false
     enableCommonBootImageImport: true
-    withHostPassthroughCPU: false
     downwardMetrics: false
     disableMDevConfiguration: false
     enableApplicationAwareQuota: false
@@ -51,3 +50,7 @@ spec:
   uninstallStrategy: BlockUninstallIfWorkloadsExist
   resourceRequirements:
     vmiCPUAllocationRatio: 10
+infra:
+    nodePlacement:
+      nodeSelector:
+        kubernetes.io/hostname: sno.main.araclab.xyz

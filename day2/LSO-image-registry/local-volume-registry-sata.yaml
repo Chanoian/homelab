@@ -1,0 +1,23 @@
+apiVersion: local.storage.openshift.io/v1
+kind: LocalVolume
+metadata:
+  name: registry-sata-localvolume
+  namespace: openshift-local-storage
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  logLevel: Normal
+  managementState: Managed
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+              - sno.main.araclab.xyz 
+  storageClassDevices:
+    - storageClassName: local-sata-registry
+      volumeMode: Filesystem
+      fsType: xfs
+      devicePaths:
+        - /dev/disk/by-id/ata-KINGSTON_SA400S37240G_50026B77842702D8

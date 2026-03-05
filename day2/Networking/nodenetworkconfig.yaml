@@ -1,0 +1,20 @@
+apiVersion: nmstate.io/v1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: br1-eno1-policy
+spec:
+  desiredState:
+    interfaces:
+      - name: br1
+        description: "Linux bridge for VM traffic"
+        type: linux-bridge
+        state: up
+        ipv4:
+          enabled: true
+          dhcp: true          # SNO node keeps its IP via bridge now
+        bridge:
+          options:
+            stp:
+              enabled: false
+          port:
+            - name: ens01

@@ -10,6 +10,12 @@ subscriptions:
     targetNamespace: openshift-storage 
     version:  4.16.0
     source: redhat-operators
+  - name: local-storage-operator
+    namespace: openshift-local-storage
+    channel: stable
+    targetNamespace: openshift-local-storage
+    version:  4.16.0
+    source: redhat-operators
   - name: kubevirt-hyperconverged
     namespace: openshift-cnv
     targetNamespace: openshift-cnv
@@ -22,4 +28,3 @@ subscriptions:
     version: 2.11.0
     targetNamespace: ""
     source: redhat-operators
-
