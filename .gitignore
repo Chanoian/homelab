@@ -5,6 +5,8 @@
 kubeconfig
 kubeconfig-*
 
-# Installer artifacts
+# Installer artifacts — contain pull secrets
+day2/nested/agent-installer/install-config.yaml
+day2/Agent-Installer/install-config.yaml
 day2/Agent-Installer/.openshift_install.log
 day2/Agent-Installer/.openshift_install_state.json
