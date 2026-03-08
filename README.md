@@ -203,28 +203,3 @@ Monitor progress:
 ssh core@192.168.2.62 "sudo journalctl -u agent -f"
 ```
 
----
-
-## Key Commands
-
-```bash
-# SSH to SNO
-ssh core@192.168.2.50
-
-# VM status
-oc get vmi -n nested-cluster -o wide
-
-# VM console / VNC
-virtctl console <vm-name> -n nested-cluster
-virtctl vnc <vm-name> -n nested-cluster
-
-# Check OVS bridge mapping
-oc debug node/sno.main.araclab.xyz -- chroot /host \
-  ovs-vsctl get Open_vSwitch . external-ids:ovn-bridge-mappings
-
-# Check storage
-oc get dv,pvc -n nested-cluster
-
-# SSH into nested VM (once booted)
-ssh core@192.168.2.62
-```
