@@ -1,0 +1,10 @@
+# Large binaries
+*.iso
+
+# Sensitive credentials
+kubeconfig
+kubeconfig-*
+
+# Installer artifacts
+day2/Agent-Installer/.openshift_install.log
+day2/Agent-Installer/.openshift_install_state.json

@@ -1,183 +1,180 @@
+---
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   name: master-0
-  namespace: nested-openshift-os-images
+  namespace: nested-cluster
 spec:
   runStrategy: Always
   template:
     metadata:
       labels:
         kubevirt.io/domain: master-0
+        cluster: nested-araclab
+        role: master
     spec:
       domain:
         cpu:
           cores: 8
-        resources:
-          requests:
-            memory: 16Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
+          - disk:
               bus: virtio
-          - name: agentiso
+            name: rootdisk
+          - bootOrder: 1
             cdrom:
               bus: sata
-            bootOrder: 1
+            name: agentiso
           interfaces:
-          - name: podnet 
-            masquerade: {}
-          - name: flatnetwork
+          - name: localnet
             bridge: {}
+            macAddress: "02:7c:71:f2:81:4b"
+        resources:
+          requests:
+            memory: 24Gi
       networks:
-      - name: podnet
-        pod: {}
-      - name: flatnetwork
+      - name: localnet
         multus:
-          networkName: nested-openshift-os-images/macvlan-network
+          networkName: nested-cluster/br-nested
       volumes:
-      - name: rootdisk
-        dataVolume:
+      - dataVolume:
           name: master0-rootdisk
+        name: rootdisk
       - name: agentiso
         persistentVolumeClaim:
-          claimName: nested-ocp-agent-iso
+          claimName: master0-agentiso
 ---
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   name: master-1
-  namespace: nested-openshift-os-images
+  namespace: nested-cluster
 spec:
   runStrategy: Always
   template:
     metadata:
       labels:
         kubevirt.io/domain: master-1
+        cluster: nested-araclab
+        role: master
     spec:
       domain:
         cpu:
           cores: 8
-        resources:
-          requests:
-            memory: 16Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
+          - disk:
               bus: virtio
-          - name: agentiso
+            name: rootdisk
+          - bootOrder: 1
             cdrom:
               bus: sata
-            bootOrder: 1
+            name: agentiso
           interfaces:
-          - name: podnet 
-            masquerade: {}
-          - name: flatnetwork 
+          - name: localnet
             bridge: {}
+            macAddress: "02:7c:71:f2:81:4c"
+        resources:
+          requests:
+            memory: 24Gi
       networks:
-      - name: podnet 
-        pod: {}
-      - name: flatnetwork 
+      - name: localnet
         multus:
-          networkName: nested-openshift-os-images/macvlan-network 
+          networkName: nested-cluster/br-nested
       volumes:
-      - name: rootdisk
-        dataVolume:
+      - dataVolume:
           name: master1-rootdisk
+        name: rootdisk
       - name: agentiso
         persistentVolumeClaim:
-          claimName: nested-ocp-agent-iso
+          claimName: master1-agentiso
 ---
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   name: master-2
-  namespace: nested-openshift-os-images
+  namespace: nested-cluster
 spec:
   runStrategy: Always
   template:
     metadata:
       labels:
         kubevirt.io/domain: master-2
+        cluster: nested-araclab
+        role: master
     spec:
       domain:
         cpu:
           cores: 8
-        resources:
-          requests:
-            memory: 16Gi
         devices:
           disks:
-          - name: rootdisk
-            disk:
+          - disk:
               bus: virtio
-          - name: agentiso
+            name: rootdisk
+          - bootOrder: 1
             cdrom:
               bus: sata
-            bootOrder: 1
+            name: agentiso
           interfaces:
-          - name: podnet
-            masquerade: {}
-          - name: flatnetwork
+          - name: localnet
             bridge: {}
+            macAddress: "02:7c:71:f2:81:4d"
+        resources:
+          requests:
+            memory: 24Gi
       networks:
-      - name: podnet
-        pod: {}
-      - name: flatnetwork
+      - name: localnet
         multus:
-          networkName: nested-openshift-os-images/macvlan-network
+          networkName: nested-cluster/br-nested
       volumes:
-      - name: rootdisk
-        dataVolume:
+      - dataVolume:
           name: master2-rootdisk
+        name: rootdisk
       - name: agentiso
         persistentVolumeClaim:
-          claimName: nested-ocp-agent-iso
+          claimName: master2-agentiso
 ---
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   name: worker-0
-  namespace: nested-openshift-os-images
+  namespace: nested-cluster
 spec:
   runStrategy: Always
   template:
     metadata:
       labels:
         kubevirt.io/domain: worker-0
+        cluster: nested-araclab
+        role: worker
     spec:
       domain:
         cpu:
-          cores: 6
-        resources:
-          requests:
-            memory: 16Gi
+          cores: 8
         devices:
           disks:
-          - name: rootdisk
-            disk:
+          - disk:
               bus: virtio
-          - name: agentiso
+            name: rootdisk
+          - bootOrder: 1
             cdrom:
               bus: sata
-            bootOrder: 1
+            name: agentiso
           interfaces:
-          - name: podnet
-            masquerade: {}
-          - name: flatnetwork
+          - name: localnet
             bridge: {}
+            macAddress: "02:7c:71:f2:81:4e"
+        resources:
+          requests:
+            memory: 32Gi
       networks:
-      - name: podnet
-        pod: {}
-      - name: flatnetwork
+      - name: localnet
         multus:
-          networkName: nested-openshift-os-images/macvlan-network
+          networkName: nested-cluster/br-nested
       volumes:
-      - name: rootdisk
-        dataVolume:
+      - dataVolume:
           name: worker0-rootdisk
+        name: rootdisk
       - name: agentiso
         persistentVolumeClaim:
-          claimName: nested-ocp-agent-iso
+          claimName: worker0-agentiso

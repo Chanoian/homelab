@@ -1,0 +1,16 @@
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: br-nested
+  namespace: nested-cluster
+  annotations:
+    description: "OVN localnet NAD without IPAM - flat L2 access to 192.168.2.0/24 via physnet:br-ex, no port_security"
+spec:
+  config: |
+    {
+      "cniVersion": "0.3.1",
+      "name": "physnet",
+      "type": "ovn-k8s-cni-overlay",
+      "topology": "localnet",
+      "netAttachDefName": "nested-cluster/br-nested"
+    }

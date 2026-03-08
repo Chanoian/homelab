@@ -1,71 +1,64 @@
+---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
   name: master0-rootdisk
-  namespace: nested-openshift-os-images
-  annotations:
-    cdi.kubevirt.io/storage.bind.immediate.requested: "true"
+  namespace: nested-cluster
 spec:
   source:
     blank: {}
-  pvc:
-    accessModes:
-      - ReadWriteOnce
+  storage:
     storageClassName: lvms-fast-ssd-pool
     resources:
       requests:
         storage: 120Gi
+    accessModes:
+    - ReadWriteOnce
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
   name: master1-rootdisk
-  namespace: nested-openshift-os-images
-  annotations:
-    cdi.kubevirt.io/storage.bind.immediate.requested: "true" 
+  namespace: nested-cluster
 spec:
   source:
     blank: {}
-  pvc:
-    accessModes:
-      - ReadWriteOnce
+  storage:
     storageClassName: lvms-fast-ssd-pool
     resources:
       requests:
         storage: 120Gi
+    accessModes:
+    - ReadWriteOnce
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
   name: master2-rootdisk
-  namespace: nested-openshift-os-images
-  annotations:
-    cdi.kubevirt.io/storage.bind.immediate.requested: "true"  
+  namespace: nested-cluster
 spec:
   source:
     blank: {}
-  pvc:
-    accessModes:
-      - ReadWriteOnce
+  storage:
     storageClassName: lvms-fast-ssd-pool
     resources:
       requests:
         storage: 120Gi
+    accessModes:
+    - ReadWriteOnce
 ---
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
   name: worker0-rootdisk
-  namespace: nested-openshift-os-images
-  annotations:
-    cdi.kubevirt.io/storage.bind.immediate.requested: "true"
+  namespace: nested-cluster
 spec:
   source:
     blank: {}
-  pvc:
-    accessModes:
-      - ReadWriteOnce
+  storage:
     storageClassName: lvms-fast-ssd-pool
     resources:
       requests:
-        storage: 150Gi
+        storage: 200Gi
+    accessModes:
+    - ReadWriteOnce

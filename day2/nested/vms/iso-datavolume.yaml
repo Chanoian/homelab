@@ -1,0 +1,97 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: nested-ocp-agent-iso
+  namespace: nested-cluster
+  annotations:
+    cdi.kubevirt.io/storage.bind.immediate.requested: "true"
+spec:
+  source:
+    upload: {}
+  storage:
+    storageClassName: lvms-fast-ssd-pool
+    resources:
+      requests:
+        storage: 2Gi
+    accessModes:
+    - ReadWriteOnce
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: master0-agentiso
+  namespace: nested-cluster
+  annotations:
+    cdi.kubevirt.io/storage.bind.immediate.requested: "true"
+spec:
+  source:
+    pvc:
+      namespace: nested-cluster
+      name: nested-ocp-agent-iso
+  storage:
+    storageClassName: lvms-fast-ssd-pool
+    resources:
+      requests:
+        storage: 2Gi
+    accessModes:
+    - ReadWriteOnce
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: master1-agentiso
+  namespace: nested-cluster
+  annotations:
+    cdi.kubevirt.io/storage.bind.immediate.requested: "true"
+spec:
+  source:
+    pvc:
+      namespace: nested-cluster
+      name: nested-ocp-agent-iso
+  storage:
+    storageClassName: lvms-fast-ssd-pool
+    resources:
+      requests:
+        storage: 2Gi
+    accessModes:
+    - ReadWriteOnce
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: master2-agentiso
+  namespace: nested-cluster
+  annotations:
+    cdi.kubevirt.io/storage.bind.immediate.requested: "true"
+spec:
+  source:
+    pvc:
+      namespace: nested-cluster
+      name: nested-ocp-agent-iso
+  storage:
+    storageClassName: lvms-fast-ssd-pool
+    resources:
+      requests:
+        storage: 2Gi
+    accessModes:
+    - ReadWriteOnce
+---
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: worker0-agentiso
+  namespace: nested-cluster
+  annotations:
+    cdi.kubevirt.io/storage.bind.immediate.requested: "true"
+spec:
+  source:
+    pvc:
+      namespace: nested-cluster
+      name: nested-ocp-agent-iso
+  storage:
+    storageClassName: lvms-fast-ssd-pool
+    resources:
+      requests:
+        storage: 2Gi
+    accessModes:
+    - ReadWriteOnce
