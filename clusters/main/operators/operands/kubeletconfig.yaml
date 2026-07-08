@@ -1,0 +1,15 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: KubeletConfig
+metadata:
+  name: set-allocatable
+spec:
+  machineConfigPoolSelector:
+    matchLabels:
+      pools.operator.machineconfiguration.openshift.io/master: ""
+  kubeletConfig:
+    systemReserved:
+      cpu: "4000m"
+      memory: 8Gi
+    cpuManagerPolicy: static
+    cpuManagerReconcilePeriod: 5s
+    topologyManagerPolicy: single-numa-node

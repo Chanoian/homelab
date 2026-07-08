@@ -1,15 +1,18 @@
 apiVersion: lvm.topolvm.io/v1alpha1
 kind: LVMCluster
 metadata:
-  name: lvm-storage-990pro
-  namespace: openshift-lvm-storage
+  name: lvmcluster
+  namespace: openshift-storage
 spec:
   storage:
     deviceClasses:
-      - name: fast-ssd-pool
+      - fstype: xfs
+        name: hcp-vm-storage
         deviceSelector:
           paths:
             - /dev/nvme0n1
         thinPoolConfig:
+          chunkSizeCalculationPolicy: Static
           name: thin-pool-1
           overprovisionRatio: 10
+          sizePercent: 90

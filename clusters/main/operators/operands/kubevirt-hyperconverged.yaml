@@ -9,8 +9,6 @@ spec:
   virtualMachineOptions:
     disableFreePageReporting: false
     disableSerialConsoleLog: true
-  higherWorkloadDensity:
-    memoryOvercommitPercentage: 150
   liveMigrationConfig:
     allowAutoConverge: false
     allowPostCopy: false
@@ -30,15 +28,11 @@ spec:
     vmiCalcConfigName: DedicatedVirtualResources
   evictionStrategy: None
   featureGates:
-    deployTektonTaskResources: false
-    enableCommonBootImageImport: true
     downwardMetrics: false
     disableMDevConfiguration: false
     enableApplicationAwareQuota: false
     deployKubeSecondaryDNS: false
-    nonRoot: true
-    alignCPUs: false
-    enableManagedTenantQuota: false
+    alignCPUs: true
     deployVmConsoleProxy: false
     persistentReservation: false
     autoResourceLimits: false
@@ -50,7 +44,7 @@ spec:
   uninstallStrategy: BlockUninstallIfWorkloadsExist
   resourceRequirements:
     vmiCPUAllocationRatio: 10
-infra:
+  infra:
     nodePlacement:
       nodeSelector:
-        kubernetes.io/hostname: sno.main.araclab.xyz
+        kubernetes.io/hostname: 34-17-eb-de-51-1d

@@ -1,0 +1,63 @@
+# =========================
+# SNO CLUSTER
+# =========================
+main.araclab.xyz:53 {
+    log
+    errors
+
+    hosts {
+        192.168.2.50 api.main.araclab.xyz
+        192.168.2.50 api-int.main.araclab.xyz
+        192.168.2.50 sno.main.araclab.xyz
+        192.168.2.50 apps.main.araclab.xyz
+        fallthrough
+    }
+
+    rewrite name regex .*\.apps\.main\.araclab\.xyz apps.main.araclab.xyz
+
+    forward . 1.1.1.1 8.8.8.8
+}
+
+# =========================
+# NESTED CLUSTER
+# =========================
+nested.araclab.xyz:53 {
+    log
+    errors
+
+    hosts {
+        192.168.2.60 api.nested.araclab.xyz
+        192.168.2.60 api-int.nested.araclab.xyz
+        192.168.2.61 apps.nested.araclab.xyz
+        fallthrough
+    }
+
+    rewrite name regex .*\.apps\.nested\.araclab\.xyz apps.nested.araclab.xyz
+
+    forward . 1.1.1.1 8.8.8.8
+}
+
+# =========================
+# REVERSE DNS FOR LAB
+# =========================
+2.168.192.in-addr.arpa:53 {
+    log
+    errors
+
+    hosts {
+        192.168.2.50 sno.main.araclab.xyz
+        192.168.2.60 api.nested.araclab.xyz
+        192.168.2.61 apps.nested.araclab.xyz
+        fallthrough
+    }
+}
+
+# =========================
+# GLOBAL FORWARDER
+# =========================
+.:53 {
+    log
+    errors
+    cache 30
+    forward . 1.1.1.1 8.8.8.8
+}

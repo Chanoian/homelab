@@ -2,29 +2,24 @@ subscriptions:
   - name: servicemeshoperator
     namespace: openshift-operators
     channel: stable
-    version: 2.6.1-0
     source: redhat-operators
   - name: lvms-operator
     namespace: openshift-storage
-    channel: stable-4.16
-    targetNamespace: openshift-storage 
-    version:  4.16.0
+    channel: stable-4.21
+    targetNamespace: openshift-storage
     source: redhat-operators
   - name: local-storage-operator
     namespace: openshift-local-storage
     channel: stable
     targetNamespace: openshift-local-storage
-    version:  4.16.0
     source: redhat-operators
   - name: kubevirt-hyperconverged
     namespace: openshift-cnv
     targetNamespace: openshift-cnv
     channel: stable
-    version:  4.16.0
     source: redhat-operators
   - name: rhods-operator
-    namespace: redhat-ods-operator 
+    namespace: redhat-ods-operator
     channel: fast
-    version: 2.11.0
     targetNamespace: ""
     source: redhat-operators

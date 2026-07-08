@@ -2,11 +2,13 @@
 *.iso
 
 # Sensitive credentials
+kubeadmin
 kubeconfig
 kubeconfig-*
+nested-kubeconfig
 
-# Installer artifacts — contain pull secrets
-day2/nested/agent-installer/install-config.yaml
-day2/Agent-Installer/install-config.yaml
-day2/Agent-Installer/.openshift_install.log
-day2/Agent-Installer/.openshift_install_state.json
+# Installer artifacts - contain pull secrets
+**/agent-installer/install-config.yaml
+**/Agent-Installer/install-config.yaml
+**/Agent-Installer/.openshift_install.log
+**/Agent-Installer/.openshift_install_state.json

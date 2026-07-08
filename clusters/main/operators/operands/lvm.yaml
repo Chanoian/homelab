@@ -9,7 +9,10 @@ spec:
   storage:
     deviceClasses:
       - fstype: xfs
-        name: vg1
+        name: hcp-vm-storage
+        deviceSelector:
+          paths:
+            - /dev/nvme0n1
         thinPoolConfig:
           chunkSizeCalculationPolicy: Static
           name: thin-pool-1

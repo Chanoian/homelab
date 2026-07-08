@@ -14,7 +14,7 @@ spec:
           - key: kubernetes.io/hostname
             operator: In
             values:
-              - sno.main.araclab.xyz 
+              - 34-17-eb-de-51-1d
   storageClassDevices:
     - storageClassName: local-sata-registry
       volumeMode: Filesystem
