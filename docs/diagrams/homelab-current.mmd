@@ -9,7 +9,7 @@ flowchart TB
 
     subgraph tower["Dell Precision Tower 7810<br/>192.168.2.50"]
       sno["OpenShift SNO<br/>cluster: main.araclab.xyz<br/>node: 34-17-eb-de-51-1d"]
-      gitops["OpenShift GitOps<br/>Argo CD app-of-apps"]
+      gitops["OpenShift GitOps<br/>single infra Application"]
       virt["OpenShift Virtualization<br/>future worker VM provider"]
       lvm["LVM Storage<br/>Patriot P300 nvme0n1<br/>future HCP worker VM disks"]
       registry["Image Registry Storage<br/>Kingston SATA sda<br/>staged, wipe first"]

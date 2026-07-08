@@ -9,7 +9,7 @@ Layout convention:
 - Other folders are staged follow-up resources that are not wired into Argo until their
   prerequisites are confirmed.
 
-Active Argo apps reconcile:
+The single infra Argo Application reconciles `clusters/main/infra`, which includes:
 
 - `lvm-storage/operator`
 - `lvm-storage/instance`

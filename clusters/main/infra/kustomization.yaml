@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../components/lvm-storage/operator
+  - ../components/local-storage/operator
+  - ../components/virtualization/operator
+  - ../components/multicluster-engine/operator
+  - ../components/lvm-storage/instance
+  - ../components/virtualization/instance
+  - ../components/multicluster-engine/instance
+  - ../cluster-config

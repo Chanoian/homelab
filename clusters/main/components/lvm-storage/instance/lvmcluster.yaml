@@ -4,6 +4,7 @@ metadata:
   name: lvmcluster
   namespace: openshift-storage
   annotations:
+    argocd.argoproj.io/sync-wave: "20"
     storageclass.kubernetes.io/is-default-class: "true"
 spec:
   storage:

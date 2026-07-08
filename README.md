@@ -64,7 +64,8 @@ does not run its control plane as three separate VMs with its own virtualized et
 
 ```
 bootstrap/                  # Manual bootstrap for OpenShift GitOps
-argo-apps/                  # Argo CD app-of-apps children
+argo-apps/                  # Argo CD Application entrypoints
+clusters/main/infra/        # Single infra Kustomize root reconciled by Argo
 clusters/main/components/   # Component-owned operators and instances
 clusters/main/cluster-config/ # Cluster-wide configuration not owned by an add-on
 clusters/main/hcp/          # HCP design notes and deferred HostedCluster/NodePool manifests
@@ -98,10 +99,10 @@ oc apply -f bootstrap/argocd-sub.yaml
 oc apply -f bootstrap/argocd-clusteradmin.yaml
 ```
 
-Then apply the app-of-apps:
+Then apply the single infra Application:
 
 ```bash
-oc apply -f argo-apps/infra-app-of-apps.yaml
+oc apply -f argo-apps/infra.yaml
 ```
 
 ## Notes

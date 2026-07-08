@@ -3,5 +3,7 @@ kind: ConfigMap
 metadata:
   name: cluster-monitoring-config
   namespace: openshift-monitoring
+  annotations:
+    argocd.argoproj.io/sync-wave: "30"
 data:
   config.yaml: |

@@ -34,7 +34,8 @@ GitHub repo: `https://github.com/Chanoian/homelab`
 | Path | Purpose |
 |---|---|
 | `bootstrap/` | Manual OpenShift GitOps bootstrap |
-| `argo-apps/` | App-of-apps child Applications |
+| `argo-apps/` | Argo CD Application entrypoints |
+| `clusters/main/infra/` | Single infra Kustomize root reconciled by Argo |
 | `clusters/main/components/` | Component-owned operators, instances, and staged follow-up resources |
 | `clusters/main/cluster-config/` | Cluster-wide config not owned by an add-on component |
 | `clusters/main/hcp/` | HCP design notes and deferred HostedCluster/NodePool manifests |

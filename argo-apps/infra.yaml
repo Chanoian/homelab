@@ -1,25 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: main-multicluster-engine-instance
+  name: infra
   namespace: openshift-gitops
-  annotations:
-    argocd.argoproj.io/sync-wave: "20"
 spec:
-  destination:
-    namespace: openshift-gitops
-    server: https://kubernetes.default.svc
+  project: default
   source:
-    path: clusters/main/components/multicluster-engine/instance
     repoURL: https://github.com/Chanoian/homelab.git
     targetRevision: main
-  project: default
+    path: clusters/main/infra
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-gitops
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
       - Validate=false
       - SkipDryRunOnMissingResource=true
+      - PruneLast=true
     automated:
       prune: true
       selfHeal: true
