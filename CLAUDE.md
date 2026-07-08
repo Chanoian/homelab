@@ -13,6 +13,7 @@ The active design is:
 - Future VM storage disk: Patriot P300 512GB at `nvme0n1`
 - Registry candidate: Kingston SATA serial `50026B77842702D8`
 - OpenShift Virtualization stays active for future Hosted Control Plane worker VMs
+- multicluster engine enables Hosted Control Planes / HyperShift support
 - The old full nested OpenShift-on-KubeVirt cluster is archived, not active
 
 GitHub repo: `https://github.com/Chanoian/homelab`
@@ -34,9 +35,9 @@ GitHub repo: `https://github.com/Chanoian/homelab`
 |---|---|
 | `bootstrap/` | Manual OpenShift GitOps bootstrap |
 | `argo-apps/` | App-of-apps child Applications |
-| `clusters/main/operators/` | Active SNO operators and operands |
-| `clusters/main/storage/` | Staged registry/local-storage resources |
-| `clusters/main/hcp/` | Future HCP/KubeVirt worker scaffold |
+| `clusters/main/components/` | Component-owned operators, instances, and staged follow-up resources |
+| `clusters/main/cluster-config/` | Cluster-wide config not owned by an add-on component |
+| `clusters/main/hcp/` | HCP design notes and deferred HostedCluster/NodePool manifests |
 | `coredns/` | Raspberry Pi CoreDNS config |
 
 ## Current Storage Plan
@@ -79,7 +80,6 @@ storage. Do not restore it into active Argo paths unless explicitly requested.
 
 Preferred next step:
 
-- Install/configure HCP prerequisites when ready.
 - Create one hosted cluster with one small KubeVirt worker node pool.
 - Keep worker VMs on the default pod network.
 - Use dedicated local storage for worker VM root disks where possible.

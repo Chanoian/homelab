@@ -17,6 +17,7 @@ VMs, has been retired from the active GitOps tree and preserved under
 | OpenShift Virtualization | Future HCP worker VM provider |
 | LVM Storage | Patriot NVMe backed storage for future HCP worker VM disks |
 | Local Storage Operator | SATA-backed image registry storage |
+| multicluster engine | Hosted control planes / HyperShift support |
 
 ## Network
 
@@ -64,8 +65,9 @@ does not run its control plane as three separate VMs with its own virtualized et
 ```
 bootstrap/                  # Manual bootstrap for OpenShift GitOps
 argo-apps/                  # Argo CD app-of-apps children
-clusters/main/              # Active SNO desired state
-clusters/main/hcp/          # Future HCP design scaffold
+clusters/main/components/   # Component-owned operators and instances
+clusters/main/cluster-config/ # Cluster-wide configuration not owned by an add-on
+clusters/main/hcp/          # HCP design notes and deferred HostedCluster/NodePool manifests
 coredns/                    # Raspberry Pi CoreDNS configuration
 docs/                       # Active operational docs
 archive/nested-ocp-virt/    # Retired full nested OCP-on-KubeVirt design
@@ -104,11 +106,12 @@ oc apply -f argo-apps/infra-app-of-apps.yaml
 
 ## Notes
 
-- `clusters/main/networking/acme-issuer/` is staged but not wired into Argo yet because
-  the repo does not currently install cert-manager.
-- `clusters/main/operators/operands/lvm.yaml` targets `nvme0n1` for future VM storage.
-- `clusters/main/storage/` contains staged registry/local-storage artifacts. Wipe the
-  leftover XFS signature on the first Kingston SATA disk before applying those.
+- `clusters/main/components/lvm-storage/instance/lvmcluster.yaml` targets `nvme0n1`
+  for future VM storage.
+- `clusters/main/components/local-storage/registry/` contains staged registry artifacts.
+  Wipe the leftover XFS signature on the first Kingston SATA disk before applying those.
+- `clusters/main/components/multicluster-engine/hypershift-addon/` is staged until MCE
+  creates the reserved `local-cluster` namespace.
 - `install-config.yaml` files are ignored because they usually contain pull secrets.
 - The archived nested design is reference material only and should not be reconciled by
   Argo CD.

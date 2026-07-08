@@ -1,6 +1,8 @@
 # Hosted Control Planes Scaffold
 
-This directory is reserved for the future HCP design.
+This directory tracks the HCP design. The multicluster engine prerequisite manifests
+are active under `clusters/main/components/multicluster-engine/`; hosted cluster and
+node pool manifests remain deferred.
 
 Target architecture:
 
@@ -17,6 +19,5 @@ Networking rule for the first implementation:
 - Do not create localnet NADs or NMState bridge policies for `br-ex`.
 - Add LAN-native worker networking only as a later, explicit phase.
 
-No `HostedCluster`, `NodePool`, or HCP operator manifests are committed here yet. Add
-those only after choosing the HCP service publishing strategy, DNS names, and worker VM
-storage class.
+No `HostedCluster` or `NodePool` manifests are committed here yet. Add those only after
+choosing the HCP service publishing strategy, DNS names, and worker VM storage class.

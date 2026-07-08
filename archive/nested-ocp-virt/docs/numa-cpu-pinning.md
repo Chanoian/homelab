@@ -30,7 +30,7 @@ Total: 104Gi RAM, 32 vCPUs dedicated.
 
 ## Step 1 — KubeletConfig
 
-File: `clusters/main/operators/operands/kubeletconfig.yaml`
+File: `clusters/main/cluster-config/kubelet/kubeletconfig.yaml`
 
 ```yaml
 apiVersion: machineconfiguration.openshift.io/v1
@@ -62,7 +62,7 @@ oc get mcp master -o jsonpath='{.metadata.labels}'
 
 Apply:
 ```bash
-oc apply -f clusters/main/operators/operands/kubeletconfig.yaml
+oc apply -f clusters/main/cluster-config/kubelet/kubeletconfig.yaml
 ```
 
 This triggers a MachineConfig render and **node reboot**. Monitor with:
@@ -72,7 +72,7 @@ oc get mcp master -w
 
 ## Step 2 — Enable alignCPUs in HyperConverged
 
-File: `clusters/main/operators/operands/kubevirt-hyperconverged.yaml`
+File: `clusters/main/components/virtualization/instance/hyperconverged.yaml`
 
 Set `alignCPUs: true` under `featureGates`:
 ```yaml
@@ -82,7 +82,7 @@ featureGates:
 
 This ensures KubeVirt aligns vCPU threads to physical CPU topology. Apply:
 ```bash
-oc apply -f clusters/main/operators/operands/kubevirt-hyperconverged.yaml
+oc apply -f clusters/main/components/virtualization/instance/hyperconverged.yaml
 ```
 
 No reboot required — takes effect on next VM start.
