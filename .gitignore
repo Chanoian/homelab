@@ -2,6 +2,7 @@
 *.iso
 
 # Sensitive credentials
+.claude/
 kubeadmin
 kubeconfig
 kubeconfig-*
