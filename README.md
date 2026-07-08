@@ -38,8 +38,8 @@ Current disk plan:
 
 | Device | Role |
 |---|---|
-| `nvme1n1` Samsung 990 PRO 1TB | SNO/RHCOS OS disk |
-| `nvme0n1` Patriot P300 512GB | Future HCP/KubeVirt worker VM storage |
+| `nvme0n1` Samsung 990 PRO 1TB | SNO/RHCOS OS disk |
+| `nvme1n1` Patriot P300 512GB | LVM Storage target for future HCP worker VMs |
 | `sda` Kingston 240GB, serial `50026B77842702D8` | Image registry candidate; wipe leftover XFS first |
 | `sdb` Kingston 240GB, serial `50026B77842717DD` | Spare local storage |
 
@@ -107,7 +107,7 @@ oc apply -f argo-apps/infra.yaml
 
 ## Notes
 
-- `clusters/main/components/lvm-storage/instance/lvmcluster.yaml` targets `nvme0n1`
+- `clusters/main/components/lvm-storage/instance/lvmcluster.yaml` targets `nvme1n1`
   for future VM storage.
 - `clusters/main/components/local-storage/registry/` contains staged registry artifacts.
   Wipe the leftover XFS signature on the first Kingston SATA disk before applying those.

@@ -9,8 +9,8 @@ The active design is:
 - Current Kubernetes node name: `34-17-eb-de-51-1d`
 - CoreDNS on a Raspberry Pi at `192.168.2.51`
 - Flat home network: `192.168.2.0/24`, gateway `192.168.2.1`
-- OS disk: Samsung 990 PRO 1TB at `nvme1n1`
-- Future VM storage disk: Patriot P300 512GB at `nvme0n1`
+- OS disk: Samsung 990 PRO 1TB at `nvme0n1`
+- Future VM storage disk: Patriot P300 512GB at `nvme1n1`
 - Registry candidate: Kingston SATA serial `50026B77842702D8`
 - OpenShift Virtualization stays active for future Hosted Control Plane worker VMs
 - multicluster engine enables Hosted Control Planes / HyperShift support
@@ -45,12 +45,12 @@ GitHub repo: `https://github.com/Chanoian/homelab`
 
 | Device | Role |
 |---|---|
-| `nvme1n1` Samsung 990 PRO 1TB | SNO/RHCOS OS disk |
-| `nvme0n1` Patriot P300 512GB | LVM Storage target for future HCP worker VMs |
+| `nvme0n1` Samsung 990 PRO 1TB | SNO/RHCOS OS disk |
+| `nvme1n1` Patriot P300 512GB | LVM Storage target for future HCP worker VMs |
 | `sda` Kingston 240GB, serial `50026B77842702D8` | Image registry candidate; wipe leftover XFS first |
 | `sdb` Kingston 240GB, serial `50026B77842717DD` | Spare |
 
-The active LVMCluster operand must only target `/dev/nvme0n1`. Do not let LVM Storage
+The active LVMCluster operand must only target `/dev/nvme1n1`. Do not let LVM Storage
 auto-consume all free disks.
 
 ## Remote Access

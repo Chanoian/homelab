@@ -22,8 +22,8 @@ Use the node name `34-17-eb-de-51-1d` in Kubernetes node selectors. The DNS name
 
 | Device | Model/serial | Role |
 |---|---|---|
-| `nvme1n1` | Samsung 990 PRO 1TB, `S73JNJ0W601950M` | SNO/RHCOS OS disk |
-| `nvme0n1` | Patriot P300 512GB, `P300EDCB22111603199` | Future HCP/KubeVirt worker VM storage |
+| `nvme0n1` | Samsung 990 PRO 1TB, `S73JNJ0W601950M` | SNO/RHCOS OS disk |
+| `nvme1n1` | Patriot P300 512GB, `P300EDCB22111603199` | LVM storage target for VM disks |
 | `sda` | Kingston 240GB, `50026B77842702D8` | Image registry candidate; leftover XFS must be wiped first |
 | `sdb` | Kingston 240GB, `50026B77842717DD` | Spare local storage |
 
